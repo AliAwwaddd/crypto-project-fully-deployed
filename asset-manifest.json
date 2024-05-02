@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/crypto-project-fully-deployed/static/css/main.84feaa3a.css",
+    "main.js": "/crypto-project-fully-deployed/static/js/main.d8f8f548.js",
+    "index.html": "/crypto-project-fully-deployed/index.html",
+    "main.84feaa3a.css.map": "/crypto-project-fully-deployed/static/css/main.84feaa3a.css.map",
+    "main.d8f8f548.js.map": "/crypto-project-fully-deployed/static/js/main.d8f8f548.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.84feaa3a.css",
+    "static/js/main.d8f8f548.js"
+  ]
+}
