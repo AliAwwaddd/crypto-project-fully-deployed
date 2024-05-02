@@ -6,8 +6,8 @@ import useConvert from '../hooks/useConvert';
 
 function CurrencyConverterForm() {
   const [amount, setAmount] = useState('');
-  const [fromCurrency, setFromCurrency] = useState('BTC');
-  const [toCurrency, setToCurrency] = useState('USD');
+  const [fromCurrency, setFromCurrency] = useState('USD');
+  const [toCurrency, setToCurrency] = useState('BTC');
   const [result, setResult] = useState('');
   const [error, setError] = useState('');
   const [swapped, setSwap] = useState(false);
@@ -57,8 +57,7 @@ function CurrencyConverterForm() {
     // console.log('swapped', swapped);
 
     const selectedCrypto = cryptoData.find(
-      (currency) =>
-        currency.symbol === (swapped === false ? fromCurrency : toCurrency)
+      (currency) => currency.symbol === (swapped ? fromCurrency : toCurrency)
     );
 
     if (!selectedCrypto) {
@@ -69,27 +68,21 @@ function CurrencyConverterForm() {
 
     // console.log({ fromCurrency, amount, toCurrency });
     const CurrenciesExchangeData = await FetchCurrneciesExchangeData(
-      swapped === false ? fromCurrency : toCurrency,
-      swapped === false ? toCurrency : fromCurrency
+      swapped ? fromCurrency : toCurrency,
+      swapped ? toCurrency : fromCurrency
     );
 
-    if (swapped === false) {
-      const convertedAmount = (
-        parseFloat(amount) / CurrenciesExchangeData
-      ).toFixed(8);
-      setError('');
-      setResult(
-        `${amount} ${toCurrency} = ${convertedAmount} ${fromCurrency}.`
-      );
-    } else {
-      const convertedAmount = (
-        parseFloat(amount) * CurrenciesExchangeData
-      ).toFixed(8);
-      setError('');
-      setResult(
-        `${amount} ${toCurrency} = ${convertedAmount} ${fromCurrency}.`
-      );
-    }
+    let convertedAmount;
+    swapped
+      ? (convertedAmount = (
+          parseFloat(amount) * CurrenciesExchangeData
+        ).toFixed(8))
+      : (convertedAmount = (
+          parseFloat(amount) / CurrenciesExchangeData
+        ).toFixed(8));
+
+    setError('');
+    setResult(`${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency}.`);
 
     // console.log('CurrenciesExchangeData', CurrenciesExchangeData);
     // console.log('data', convertedAmount);
@@ -118,13 +111,9 @@ function CurrencyConverterForm() {
         />
         <div id="select-field">
           <select
-            name={swapped ? 'fromCurrency' : 'toCurrency'}
-            value={swapped ? fromCurrency : toCurrency}
-            onChange={(e) =>
-              swapped
-                ? setFromCurrency(e.target.value)
-                : setToCurrency(e.target.value)
-            }
+            name={'fromCurrency'}
+            value={fromCurrency}
+            onChange={(e) => setFromCurrency(e.target.value)}
           >
             {swapped
               ? cryptoData.map((currency) => (
@@ -139,16 +128,15 @@ function CurrencyConverterForm() {
                 ))}
           </select>
           <button className="subButt" type="button" onClick={handleSwap}>
-            <i class="uil uil-exchange"></i>
+            <i className="uil uil-exchange"></i>
           </button>
+
+          {/* ##################### second select #####################  */}
+
           <select
-            name={swapped ? 'toCurrency' : 'fromCurrency'}
-            value={swapped ? toCurrency : fromCurrency}
-            onChange={(e) =>
-              swapped
-                ? setToCurrency(e.target.value)
-                : setFromCurrency(e.target.value)
-            }
+            name={'toCurrency'}
+            value={toCurrency}
+            onChange={(e) => setToCurrency(e.target.value)}
           >
             {swapped
               ? CurrenciesData.map((currency) => (
