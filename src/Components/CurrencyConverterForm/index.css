@@ -1,0 +1,133 @@
+/* CurrencyConverterForm.css */
+
+.img-placed img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 600px;
+  margin: auto;
+  padding: auto;
+  height: 600px;
+  display: block;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+input[type='text'] {
+  width: 87%;
+  margin: auto;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 1rem;
+  background: none;
+  line-height: 1.5;
+  padding: 12px;
+  border-radius: 20px;
+  color: #808080;
+  font-size: 14px;
+  border: 1px solid rgb(221, 221, 221);
+}
+
+input[type='text']:focus {
+  border-color: rgba(38, 117, 181, 0.7);
+}
+
+#select-field {
+  display: flex;
+  justify-content: space-between;
+}
+
+#fromCurrencyName {
+  margin-top: 0;
+  font-size: 16px;
+  color: #667c99;
+  font-weight: 600;
+  display: inline-block;
+  margin: 15px 40px 7.5px;
+}
+
+#fromCurrency {
+  width: 40%;
+}
+
+::placeholder {
+  font-size: 1rem;
+  color: rgb(20, 30, 55);
+}
+
+select {
+  margin: auto;
+  font-size: 10px;
+  width: 250px;
+  height: 45px;
+  display: block;
+  font-size: 13px;
+  color: #808080;
+  padding: 12px;
+  background: none;
+  border-radius: 5px;
+  color: rgb(20, 30, 55);
+  border: 1px solid rgb(221, 221, 221);
+}
+
+select:focus {
+  border-color: rgb(0, 113, 235);
+}
+
+.primary-btn {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  min-width: 0px;
+  width: 87%;
+  cursor: pointer;
+  margin: auto;
+  outline-offset: 4px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition-property: background-color, border-color;
+  transition-duration: 0.3s;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  background-color: #4752ef;
+  border: 2px solid #212eee;
+}
+
+.primary-btn:hover {
+  background-color: rgb(0, 113, 235);
+  border: 2px solid rgb(0, 113, 235);
+}
+
+#result {
+  color: #141e37;
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.subButt {
+  border: 1px solid rgb(96, 161, 230);
+  border-radius: 10px;
+  height: 35px;
+  margin-top: 5px;
+  background-color: rgb(67, 143, 223);
+  color: white;
+  transition: all .5s ease;
+}
+
+.subButt:hover {
+  border: 1px solid rgb(96, 161, 230);
+  border-radius: 10px;
+  height: 35px;
+  margin-top: 5px;
+  background-color: white;
+  color: rgb(67, 143, 223);
+}
