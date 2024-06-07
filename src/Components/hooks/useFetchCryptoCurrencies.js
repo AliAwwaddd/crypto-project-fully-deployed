@@ -6,7 +6,7 @@ function useFetchCurrencies() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchData = async () => {
+  const fetchData = async ({ dispatch }) => {
     try {
       setLoading(true);
 
@@ -19,6 +19,7 @@ function useFetchCurrencies() {
       setError(error.message);
     } finally {
       setLoading(false);
+      dispatch({ type: 'dataReceived' });
     }
   };
 
